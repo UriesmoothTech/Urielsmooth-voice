@@ -1,0 +1,90 @@
+{
+  "name": "uriesmooth-voice-desktop",
+  "version": "0.1.0",
+  "description": "Desktop app for real-time voice cloning with consent management",
+  "main": "dist/main.js",
+  "homepage": "./",
+  "scripts": {
+    "react-start": "react-scripts start",
+    "react-build": "react-scripts build",
+    "react-test": "react-scripts test",
+    "react-eject": "react-scripts eject",
+    "electron-start": "wait-on http://localhost:3000 && electron .",
+    "electron-dev": "concurrently \"npm run react-start\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron-build": "npm run react-build && electron-builder",
+    "build": "npm run react-build && npm run electron-build",
+    "start": "npm run electron-dev",
+    "release": "npm run build -- --publish onTagOrDraft",
+    "lint": "eslint src/"
+  },
+  "dependencies": {
+    "axios": "^1.6.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.0",
+    "electron-dev-utils": "^1.1.0",
+    "react-scripts": "5.0.1",
+    "wait-on": "^7.1.0",
+    "eslint": "^8.53.0",
+    "web-vitals": "^2.1.4"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "homepage": "electron://",
+  "author": "URIESMOOTH Voice Team",
+  "license": "MIT",
+  "build": {
+    "appId": "com.uriesmooth.voice",
+    "productName": "URIESMOOTH Voice",
+    "directories": {
+      "buildResources": "public"
+    },
+    "files": [
+      "dist/",
+      "node_modules/",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    }
+  }
+}

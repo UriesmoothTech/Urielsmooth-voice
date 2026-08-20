@@ -1,0 +1,58 @@
+# Dependencies
+node_modules/
+venv/
+__pycache__/
+*.egg-info/
+.eggs/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Build outputs
+dist/
+build/
+out/
+*.log
+
+# Audio files (for security)
+audio/samples/*.wav
+audio/samples/*.mp3
+audio/recordings/raw/*
+!audio/recordings/.gitkeep
+!audio/samples/.gitkeep
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Temp files
+tmp/
+temp/
+.cache/
+
+# OS
+Thumbs.db
+.AppleDouble
+.LSOverride
+
+# GPU/ML model cache
+*.pt
+*.pth
+models/cache/*
+!models/cache/.gitkeep
+
+# Development
+.vscode-insiders
+*.code-workspace
+.git/objects/
